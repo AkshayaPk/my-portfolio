@@ -36,17 +36,19 @@ const getMessage= (name) => `Welcome to JS,${name}!`; //Function takes name as a
 const button=document.getElementById('submit_info');
 const messageAreaError = document.getElementById('error');
 const contentArea = document.getElementById('content');
+
 button.addEventListener('click',(evt)=>{
   messageAreaError.className = "errorBox--hidden";
   contentArea.textContent = "";
+
   let name=document.getElementById('name').value;
+
   if(name.length<2){
     messageAreaError.textContent = "You need to enter a name";
     messageAreaError.className= "errorBox";
   }
   else{
       contentArea.textContent=getMessage(name);
-
   }
 
 });

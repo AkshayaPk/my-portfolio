@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Babel Demo</title>
+    <style media="screen">
+      .errorBox{
+        border: 1px solid red;
+        background-color: #eebbbb;
+        margin: 1em;
+        padding: 2em;
+      }
+      .errorBox--hidden{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+<main>
+
+  <label>Enter Your Name: <input type="text" id="name" name="" value=""></label>
+  <button type="button" id="submit_info" name="button">Click Me</button>
+  <div id="content" class="">
+
+  </div>
+  <div id="error" class="errorBox--hidden">
+   Error Messasge Goes Here.
+  </div>
+</main>
+<script src="https://unpkg.com/babel-standalone">
+
+</script>
+<script type="text/babel" data-presets="latest">
+
+const getMessage= (name) => `Welcome to JS,${name}!`; //Function takes name as argument and puts it within string
+const button=document.getElementById('submit_info');
+const messageAreaError = document.getElementById('error');
+const contentArea = document.getElementById('content');
+button.addEventListener('click',(evt)=>{
+  messageAreaError.className = "errorBox--hidden";
+  contentArea.textContent = "";
+  let name=document.getElementById('name').value;
+  if(name.length<2){
+    messageAreaError.textContent = "You need to enter a name";
+    messageAreaError.className= "errorBox";
+  }
+  else{
+      contentArea.textContent=getMessage(name);
+
+  }
+
+});
+
+</script>
+  </body>
+</html>

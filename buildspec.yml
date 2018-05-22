@@ -3,6 +3,7 @@ phases:
   install:
     commands:
       - npm install
+      - npm install -D webpack-cli
       - npm run webpack
 artifacts:
   files:
